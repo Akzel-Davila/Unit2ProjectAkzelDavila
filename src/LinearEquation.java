@@ -16,7 +16,7 @@ public class LinearEquation {
        slope = "";
        mathSlope = 0;
     }
-    public double CalculateSlope(int x,int x2 ,int y ,int y2){
+    public double calculateSlope(){
         double rise = (double)y2 - (double)y;
         String numerator = ""+ (int)rise;
         double run = (double)x2 - (double)x;
@@ -25,13 +25,13 @@ public class LinearEquation {
         slope = numerator + "/" + denominator;
         return mathSlope;
     }
-    public String findLinearEquation(double mathSlope, int x, int y){
+    public String findLinearEquation(){
         b = y - (mathSlope * x);
         b = Math.round(b * 100.0) / 100.0;
         String linearEquation = slope + "x + " + b;
         return linearEquation;
     }
-    public double findDistance (int x, int x2, int y, int y2){
+    public double findDistance (){
         double xSquared = Math.pow(((double) x2 - (double) x), 2);
         double ySquared = Math.pow(((double) y2 - (double) y), 2);
         double distance = Math.sqrt(xSquared + ySquared);
@@ -42,6 +42,10 @@ public class LinearEquation {
         pointOnLine = Math.round(pointOnLine *100.0/ 100.0);
         return pointOnLine;
 
+    }
+    public String toString(){
+        String information = "The points are” + “(“ + x + “, “ + y + “) , ” + “(“ + x2 + “, “ + y2 + “), and the distance between them is “ + distance + “and the linear equation is” + linerEquation.";
+        return information;
     }
 
 
