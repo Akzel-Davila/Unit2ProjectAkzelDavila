@@ -7,19 +7,19 @@ public class LinearEquation {
     private String slope;
     private double mathSlope;
 
-    public LinearEquation (int xPoint, int xPoint2, int yPoint, int yPoint2 ){
+    public LinearEquation (int xPoint, int yPoint, int xPoint2, int yPoint2 ){
        x = xPoint;
-       x2 = xPoint2;
        y = yPoint;
-       y = yPoint2;
+       x2 = xPoint2;
+       y2 = yPoint2;
        b = 0;
        slope = "";
        mathSlope = 0;
     }
     public double calculateSlope(){
-        double rise = (double)y2 - (double)y;
+        double rise = y2 - y;
         String numerator = ""+ (int)rise;
-        double run = (double)x2 - (double)x;
+        double run = x2 - x;
         String denominator = ""+ (int)run;
         mathSlope = rise/run;
         slope = numerator + "/" + denominator;
@@ -35,16 +35,20 @@ public class LinearEquation {
         double xSquared = Math.pow(((double) x2 - (double) x), 2);
         double ySquared = Math.pow(((double) y2 - (double) y), 2);
         double distance = Math.sqrt(xSquared + ySquared);
+        distance = Math.round(distance * 100.0)/100.0;
         return distance;
     }
-    public static double findPointOnLine(double b, double mathSlope, double userPoint){
+    public double findPointOnLine(double userPoint){
         double pointOnLine = b + (mathSlope * userPoint);
-        pointOnLine = Math.round(pointOnLine *100.0/ 100.0);
+        pointOnLine = Math.round(pointOnLine *100.0)/ 100.0;
         return pointOnLine;
 
     }
+    public double returnYIntercept(){
+        return b;
+    }
     public String toString(){
-        String information = "The points are” + “(“ + x + “, “ + y + “) , ” + “(“ + x2 + “, “ + y2 + “), and the distance between them is “ + distance + “and the linear equation is” + linerEquation.";
+        String information = "The points are" + "(" + x + "," + y + ")" + "," + "(" + x2 + "," + y2 + ")" + "," + "and the distance between them is “ + distance + “and the linear equation is” + linerEquation.";
         return information;
     }
 
