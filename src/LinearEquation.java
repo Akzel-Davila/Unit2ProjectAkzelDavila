@@ -6,6 +6,8 @@ public class LinearEquation {
     private double b;
     private String slope;
     private double mathSlope;
+    private double distance;
+    private String linearEquation;
 
     public LinearEquation (int xPoint, int yPoint, int xPoint2, int yPoint2 ){
        x = xPoint;
@@ -15,6 +17,9 @@ public class LinearEquation {
        b = 0;
        slope = "";
        mathSlope = 0;
+       distance = 0;
+       linearEquation = "";
+
     }
     public double calculateSlope(){
         double rise = y2 - y;
@@ -28,13 +33,13 @@ public class LinearEquation {
     public String findLinearEquation(){
         b = y - (mathSlope * x);
         b = Math.round(b * 100.0) / 100.0;
-        String linearEquation = slope + "x + " + b;
+        linearEquation = "y = "+ slope + "x + " + b;
         return linearEquation;
     }
     public double findDistance (){
         double xSquared = Math.pow(((double) x2 - (double) x), 2);
         double ySquared = Math.pow(((double) y2 - (double) y), 2);
-        double distance = Math.sqrt(xSquared + ySquared);
+        distance = Math.sqrt(xSquared + ySquared);
         distance = Math.round(distance * 100.0)/100.0;
         return distance;
     }
@@ -48,7 +53,7 @@ public class LinearEquation {
         return b;
     }
     public String toString(){
-        String information = "The points are" + "(" + x + "," + y + ")" + "," + "(" + x2 + "," + y2 + ")" + "," + "and the distance between them is “ + distance + “and the linear equation is” + linerEquation.";
+        String information = "The points are " + "(" + x + "," + y + ")" + " and " + "(" + x2 + "," + y2 + ")" + "," + "and the distance between them is " + distance + " and the linear equation is " + linearEquation;
         return information;
     }
 
